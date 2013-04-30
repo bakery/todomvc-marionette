@@ -1,5 +1,5 @@
-define(["backbone","marionette","handlebars", "text!./view.html"], 
-    function(Backbone,Marionette,Handlebars,template){
+define(["backbone","marionette","vent","handlebars", "text!./view.html"], 
+    function(Backbone,Marionette,vent,Handlebars,template){
         var FooterView = Backbone.Marionette.ItemView.extend({
             template : function(serializedModel){
                 var t = Handlebars.compile(template);
@@ -22,7 +22,7 @@ define(["backbone","marionette","handlebars", "text!./view.html"],
             }, 
 
             initialize : function() {
-                //this.bindTo(App.vent, 'todoList:filter', this.updateFilterSelection, this);
+                this.listenTo(vent, 'todoList:filter', this.updateFilterSelection, this);
             },
 
             onRender: function() {
