@@ -4,10 +4,7 @@ define(["backbone","marionette","handlebars","text!./item.html"],
 
         var TodoItem = Marionette.ItemView.extend({
             tagName : 'li',
-            template : function(serializedModel){
-                var t = Handlebars.compile(template);
-                return t(serializedModel);
-            },
+            template : template,
 
             ui: {
                 edit: '.edit'

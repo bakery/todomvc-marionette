@@ -3,10 +3,7 @@ define(["backbone","marionette", "vent", "views/todo/item", "handlebars","text!.
     function(Backbone,Marionette,vent,TodoItemView,Handlebars,template){
 
         var TodoList = Marionette.CompositeView.extend({
-            template : function(serializedModel){
-                var t = Handlebars.compile(template);
-                return t(serializedModel);
-            },
+            template : template,
 
             itemView: TodoItemView,
             itemViewContainer: "#todo-list",

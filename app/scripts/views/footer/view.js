@@ -1,10 +1,7 @@
 define(["backbone","marionette","vent","handlebars", "text!./view.html"], 
     function(Backbone,Marionette,vent,Handlebars,template){
         var FooterView = Backbone.Marionette.ItemView.extend({
-            template : function(serializedModel){
-                var t = Handlebars.compile(template);
-                return t(serializedModel);
-            },
+            template : template,
 
             ui : {
                 todoCount: '#todo-count .count',

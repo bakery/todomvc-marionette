@@ -1,10 +1,7 @@
 define(["backbone","marionette","handlebars", "text!./view.html"], 
     function(Backbone,Marionette,Handlebars,template){
         var HeaderView = Backbone.Marionette.ItemView.extend({
-            template : function(serializedModel){
-                var t = Handlebars.compile(template);
-                return t(serializedModel);
-            },
+            template : template,
 
             ui : {
                 input : "#new-todo"              
