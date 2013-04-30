@@ -1,5 +1,5 @@
-define(["backbone","marionette","vent","handlebars", "text!./view.html"], 
-    function(Backbone,Marionette,vent,Handlebars,template){
+define(["backbone","marionette","vent","text!./view.html"], 
+    function(Backbone,Marionette,vent,template){
         var FooterView = Backbone.Marionette.ItemView.extend({
             template : template,
 

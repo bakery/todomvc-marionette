@@ -1,6 +1,6 @@
-define(["backbone","marionette", "vent", "views/todo/item", "handlebars","text!./list.html"],
+define(["backbone","marionette", "vent", "views/todo/item","text!./list.html"],
 
-    function(Backbone,Marionette,vent,TodoItemView,Handlebars,template){
+    function(Backbone,Marionette,vent,TodoItemView,template){
 
         var TodoList = Marionette.CompositeView.extend({
             template : template,

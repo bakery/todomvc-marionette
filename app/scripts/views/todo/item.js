@@ -1,6 +1,6 @@
-define(["backbone","marionette","handlebars","text!./item.html"],
+define(["backbone","marionette","text!./item.html"],
 
-    function(Backbone,Marionette,Handlebars,template){
+    function(Backbone,Marionette,template){
 
         var TodoItem = Marionette.ItemView.extend({
             tagName : 'li',

@@ -1,5 +1,5 @@
-define(["backbone","marionette","handlebars", "text!./view.html"], 
-    function(Backbone,Marionette,Handlebars,template){
+define(["backbone","marionette","text!./view.html"], 
+    function(Backbone,Marionette,template){
         var HeaderView = Backbone.Marionette.ItemView.extend({
             template : template,
 
