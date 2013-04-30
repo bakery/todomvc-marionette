@@ -1,5 +1,8 @@
 <span id="todo-count">
-    <strong class="count"></strong> <span class="label"></span> left
+    <strong class="count"></strong>{{activeItems}}
+    <span class="label">
+        {{pluralize activeItems single="item" plural="items"}}
+    </span> left
 </span>
 <ul id="filters">
     <li>
@@ -12,4 +15,6 @@
         <a href="#completed">Completed</a>
     </li>
 </ul>
-<button id="clear-completed">Clear completed <span class="count"></span></button>
+<button id="clear-completed">Clear completed 
+    <span class="count">{{#if completedItems }}({{completedItems}}){{/if}}</span>
+</button>

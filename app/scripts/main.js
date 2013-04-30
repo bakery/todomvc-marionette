@@ -30,6 +30,6 @@ require.config({
 
 });
 
-require(['jquery', 'app', 'marionette.overrides'], function($,Application) {
+require(['jquery', 'app', 'handlebars.helpers', 'marionette.overrides'], function($,Application) {
     Application.start();
 });

@@ -4,9 +4,6 @@ define(["backbone","marionette","vent","text!./view.html"],
             template : template,
 
             ui : {
-                todoCount: '#todo-count .count',
-                todoCountLabel: '#todo-count .label',
-                clearCount: '#clear-completed .count',
                 filters: '#filters a'
             },
 
@@ -15,23 +12,18 @@ define(["backbone","marionette","vent","text!./view.html"],
             },
 
             collectionEvents: {
-                'all' : 'updateCount'
+                'all' : 'render'
             }, 
 
             initialize : function() {
                 this.listenTo(vent, 'todoList:filter', this.updateFilterSelection, this);
             },
 
-            onRender: function() {
-                this.updateCount();
-            },
-
-            updateCount: function() {
-                var activeCount = this.collection.getActive().length,
-                completedCount = this.collection.getCompleted().length;
-                this.ui.todoCount.html(activeCount);
-                this.ui.todoCountLabel.html(activeCount === 1 ? 'item' : 'items');
-                this.ui.clearCount.html(completedCount === 0 ? '' : '(' + completedCount + ')');
+            serializeData : function(){
+                return {
+                    activeItems : this.collection.getActive().length,
+                    completedItems : this.collection.getCompleted().length
+                };
             },
 
             updateFilterSelection : function(filter) {
