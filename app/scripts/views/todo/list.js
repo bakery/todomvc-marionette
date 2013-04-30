@@ -19,8 +19,8 @@ define(["backbone","marionette", "vent", "views/todo/item", "handlebars","text!.
                 'click #toggle-all': 'onToggleAllClick'
             },
 
-            initialize: function() {
-                this.listenTo(this.collection, 'all', this.update, this);
+            collectionEvents : {
+                'all' : 'update'
             },
 
             onRender: function() {

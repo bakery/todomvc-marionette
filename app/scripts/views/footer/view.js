@@ -17,9 +17,12 @@ define(["backbone","marionette","handlebars", "text!./view.html"],
                 'click #clear-completed': 'onClearClick'
             },
 
+            collectionEvents: {
+                'all' : 'updateCount'
+            }, 
+
             initialize : function() {
                 //this.bindTo(App.vent, 'todoList:filter', this.updateFilterSelection, this);
-                this.listenTo(this.collection, 'all', this.updateCount, this);
             },
 
             onRender: function() {

@@ -21,8 +21,8 @@ define(["backbone","marionette","handlebars","text!./item.html"],
                 'click .toggle' : 'toggle'
             },
 
-            initialize: function() {
-                this.listenTo(this.model, 'change', this.render, this);
+            modelEvents : {
+                'change' : 'render'
             },
 
             onRender: function() {
