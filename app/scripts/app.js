@@ -12,9 +12,7 @@ define(["backbone", "marionette", "controllers/todo"],
         });
 
         MyApp.addRegions({
-            header : "#header",
-            main : "#main",
-            footer : "#footer"
+            main : ".content"
         });
 
         // export the app from this module

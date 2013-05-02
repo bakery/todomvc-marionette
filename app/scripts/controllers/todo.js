@@ -1,6 +1,6 @@
-define(["underscore", "marionette", "vent", "models/todo", "views/header/view", "views/footer/view", "views/todo/list"],
+define(["underscore", "marionette", "vent", "models/todo", "views/layouts/application.layout"],
 
-    function(_,Marionette,vent,TodoData,HeaderView,FooterView,TodoListView){
+    function(_,Marionette,vent,TodoData,ApplicationLayout){
 
         var AppRouter = Marionette.AppRouter.extend({
             appRoutes: {
@@ -19,14 +19,13 @@ define(["underscore", "marionette", "vent", "models/todo", "views/header/view", 
             },
 
             start : function(application){
-                var headerView = new HeaderView({ collection : this.todoList });
-                application.header.show(headerView);     
+                
+                var applicationLayout = new ApplicationLayout();
+                application.main.show(applicationLayout);
 
-                var footerView = new FooterView({ collection : this.todoList });
-                application.footer.show(footerView);
-
-                var todoListView = new TodoListView({ collection : this.todoList });
-                application.main.show(todoListView);
+                applicationLayout.showHeader(this.todoList);
+                applicationLayout.showFooter(this.todoList);
+                applicationLayout.showMainArea(this.todoList);
             }
 
         });
